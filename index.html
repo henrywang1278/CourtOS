@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CourtOS</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="container">
+    <h1>CourtOS</h1>
+
+    <p class="subtitle">
+      AI Basketball Training Platform
+    </p>
+
+    <button id="uploadButton">
+      Upload Shooting Video
+    </button>
+
+    <input
+      type="file"
+      id="videoInput"
+      accept="video/*"
+      hidden
+    >
+
+    <video
+      id="videoPreview"
+      controls
+      hidden
+    ></video>
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
