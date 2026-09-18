@@ -28,11 +28,18 @@
       hidden
     >
 
-    <video
-      id="videoPreview"
-      controls
-      hidden
-    ></video>
+    <div id="videoInfo" hidden>
+  <p>File: <span id="fileName"></span></p>
+  <p>Size: <span id="fileSize"></span></p>
+  <p>Duration: <span id="videoDuration"></span></p>
+  <p>Resolution: <span id="videoResolution"></span></p>
+</div>
+
+<video
+  id="videoPreview"
+  controls
+  hidden
+></video>
   </main>
 
   <script src="script.js"></script>
