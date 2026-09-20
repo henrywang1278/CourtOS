@@ -35,11 +35,14 @@
   <p>Resolution: <span id="videoResolution"></span></p>
 </div>
 
-<video
-  id="videoPreview"
-  controls
-  hidden
-></video>
+<div id="videoContainer" hidden>
+  <video
+    id="videoPreview"
+    controls
+  ></video>
+
+  <canvas id="poseCanvas"></canvas>
+</div>
 <button id="analyzeButton" hidden>
   Analyze Shot
 </button>

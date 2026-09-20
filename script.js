@@ -8,6 +8,8 @@ const fileSize = document.getElementById("fileSize");
 const videoDuration = document.getElementById("videoDuration");
 const videoResolution = document.getElementById("videoResolution");
 const analyzeButton = document.getElementById("analyzeButton");
+const videoContainer = document.getElementById("videoContainer");
+const poseCanvas = document.getElementById("poseCanvas");
 
 uploadButton.addEventListener("click", function () {
   videoInput.click();
@@ -23,8 +25,9 @@ videoInput.addEventListener("change", function () {
   const videoURL = URL.createObjectURL(file);
 
   videoPreview.src = videoURL;
-  videoPreview.hidden = false;
-  analyzeButton.hidden = false;
+videoContainer.hidden = false;
+
+analyzeButton.hidden = false;
 
   fileName.textContent = file.name;
 
