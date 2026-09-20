@@ -46,3 +46,11 @@ CourtOS is currently in early development.
 - Added video duration display
 - Added video resolution display
 - Improved the video upload interface
+
+### v0.3 - Shot Analysis Interface
+
+- Added Analyze Shot button
+- Added shooting analysis results panel
+- Added placeholder shooting metrics
+- Added overall shooting score display
+- Completed the basic video-to-analysis workflow
