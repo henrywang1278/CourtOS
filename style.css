@@ -58,3 +58,31 @@ video {
 #videoInfo p {
   margin: 8px 0;
 }
+#analyzeButton {
+  margin-top: 20px;
+}
+
+#analysisResults {
+  margin-top: 25px;
+  width: 320px;
+  padding: 22px;
+
+  background: #111827;
+  border-radius: 14px;
+
+  text-align: left;
+}
+
+#analysisResults h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+#analysisResults p {
+  margin: 12px 0;
+}
+
+#analysisResults h3 {
+  margin-top: 20px;
+  text-align: center;
+}

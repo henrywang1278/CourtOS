@@ -7,6 +7,7 @@ const fileName = document.getElementById("fileName");
 const fileSize = document.getElementById("fileSize");
 const videoDuration = document.getElementById("videoDuration");
 const videoResolution = document.getElementById("videoResolution");
+const analyzeButton = document.getElementById("analyzeButton");
 
 uploadButton.addEventListener("click", function () {
   videoInput.click();
@@ -23,6 +24,7 @@ videoInput.addEventListener("change", function () {
 
   videoPreview.src = videoURL;
   videoPreview.hidden = false;
+  analyzeButton.hidden = false;
 
   fileName.textContent = file.name;
 
@@ -40,4 +42,15 @@ videoInput.addEventListener("change", function () {
 
     videoInfo.hidden = false;
   });
+});
+const analysisResults = document.getElementById("analysisResults");
+
+analyzeButton.addEventListener("click", function () {
+  analysisResults.hidden = false;
+
+  document.getElementById("elbowAngle").textContent = "87°";
+  document.getElementById("kneeAngle").textContent = "112°";
+  document.getElementById("bodyLean").textContent = "6°";
+  document.getElementById("releaseHeight").textContent = "88%";
+  document.getElementById("overallScore").textContent = "82 / 100";
 });
