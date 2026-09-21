@@ -54,3 +54,11 @@ CourtOS is currently in early development.
 - Added placeholder shooting metrics
 - Added overall shooting score display
 - Completed the basic video-to-analysis workflow
+
+### v0.4 - Pose Detection
+
+- Integrated MediaPipe Pose Landmarker
+- Added pose detection for uploaded videos
+- Added canvas overlay on the video
+- Added real-time body landmark visualization
+- Detects major basketball shooting body joints
