@@ -41,6 +41,10 @@ const videoResolution = document.getElementById("videoResolution");
 const analyzeButton = document.getElementById("analyzeButton");
 const videoContainer = document.getElementById("videoContainer");
 const poseCanvas = document.getElementById("poseCanvas");
+const canvasCtx = poseCanvas.getContext("2d");
+const drawingUtils = new DrawingUtils(canvasCtx);
+
+let lastVideoTime = -1;
 
 uploadButton.addEventListener("click", function () {
   videoInput.click();
@@ -87,4 +91,61 @@ analyzeButton.addEventListener("click", function () {
   document.getElementById("bodyLean").textContent = "6°";
   document.getElementById("releaseHeight").textContent = "88%";
   document.getElementById("overallScore").textContent = "82 / 100";
+});
+function detectPose() {
+  if (!poseLandmarker) {
+    requestAnimationFrame(detectPose);
+    return;
+  }
+
+  if (videoPreview.paused || videoPreview.ended) {
+    return;
+  }
+
+  if (videoPreview.videoWidth === 0 || videoPreview.videoHeight === 0) {
+    requestAnimationFrame(detectPose);
+    return;
+  }
+
+  poseCanvas.width = videoPreview.videoWidth;
+  poseCanvas.height = videoPreview.videoHeight;
+
+  if (videoPreview.currentTime !== lastVideoTime) {
+    const results = poseLandmarker.detectForVideo(
+      videoPreview,
+      performance.now()
+    );
+
+    lastVideoTime = videoPreview.currentTime;
+
+    canvasCtx.clearRect(
+      0,
+      0,
+      poseCanvas.width,
+      poseCanvas.height
+    );
+
+    for (const landmarks of results.landmarks) {
+      drawingUtils.drawConnectors(
+        landmarks,
+        PoseLandmarker.POSE_CONNECTIONS,
+        {
+          lineWidth: 3
+        }
+      );
+
+      drawingUtils.drawLandmarks(
+        landmarks,
+        {
+          radius: 4
+        }
+      );
+    }
+  }
+
+  requestAnimationFrame(detectPose);
+}
+
+videoPreview.addEventListener("play", function () {
+  detectPose();
 });
